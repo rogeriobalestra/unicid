@@ -1,4 +1,4 @@
-package br.com.unicid.controller;
+package br.com.unicid.model;
 
 import java.sql.Date;
 

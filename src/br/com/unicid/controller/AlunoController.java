@@ -4,6 +4,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent; // cuidado ao importar esse (tem que o do package faces)
 
+import br.com.unicid.model.Aluno;
+
 @ManagedBean(name = "alunoController")
 @ViewScoped
 public class AlunoController {

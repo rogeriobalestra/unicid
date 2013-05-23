@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.unicid.controller.Aluno;
+import br.com.unicid.model.Aluno;
 import br.com.unicid.ultil.ConnectionFactory;
 
 public class AlunoDAO {
