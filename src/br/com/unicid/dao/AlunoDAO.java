@@ -38,15 +38,21 @@ public class AlunoDAO {
 		conectaMySQL(); //Conecta MySQL
 		
 		try {
-			String sql = "";
+			
+			String sql = "INSERT INTO unicid.tb_aluno(ca, nome, email, data_nascimento, endereco, idade) VALUES(?,?,?,?,?,?)";
 			
 			pstm = conn.prepareStatement(sql);
-			pstm.execute();			
+			pstm.setString(1, aluno.getCa());
+			pstm.setString(2, aluno.getNome());
+			pstm.setString(3, aluno.getEmail());
+			pstm.setDate(4, aluno.getDataNascimento());
+			pstm.setString(5, aluno.getEndereco());
+			pstm.setInt(6, aluno.getIdade());
+			pstm.execute();
 			
 		} finally {
 			ConnectionFactory.closeConnection(conn, pstm, rs);
 		}
-		
 	}
 	
 	
