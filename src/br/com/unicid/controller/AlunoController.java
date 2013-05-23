@@ -1,9 +1,10 @@
 package br.com.unicid.controller;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent; // cuidado ao importar esse (tem que o do package faces)
-
 import br.com.unicid.dao.AlunoDAO;
 import br.com.unicid.model.Aluno;
 
@@ -12,7 +13,11 @@ import br.com.unicid.model.Aluno;
 public class AlunoController {
 
 	private Aluno aluno; // Bean
-
+	private List<Aluno> listaAluno;
+	
+	
+	
+	
 	/** CONSTRUTOR */
 	public AlunoController() {
 		aluno = new Aluno();
@@ -26,9 +31,6 @@ public class AlunoController {
 	
 	/** GRAVAR  */
 	public void gravar(ActionEvent evt){
-		
-		System.out.println(aluno.getDataNascimento());
-		
 		AlunoDAO dao = new AlunoDAO();
 		
 		try {
@@ -39,10 +41,24 @@ public class AlunoController {
 	}
 	
 	
+	/** LISTAR ALUNOS */
+	public void listar(){
+		AlunoDAO dao = new AlunoDAO();
+		
+		try {
+			listaAluno = null;
+			listaAluno = dao.listarAlunos();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	
 	
 	// GETTS AND SETTER  - DO CONTROLLER
-	
 	
 	public Aluno getAluno() {
 		return aluno;
@@ -51,5 +67,16 @@ public class AlunoController {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
+
+	public List<Aluno> getListaAluno() {
+		return listaAluno;
+	}
+
+	public void setListaAluno(List<Aluno> listaAluno) {
+		this.listaAluno = listaAluno;
+	}
+	
+	
+	
 
 }

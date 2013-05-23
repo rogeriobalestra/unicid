@@ -25,6 +25,13 @@
 			<p:panel header="Cadastro" style="width: 800px; font-family: arial; font-size: 13px;">
 			
 			
+				<!-- 
+					#########################################
+					#              CADASTRO                 #
+					#########################################
+				 -->
+			
+			
 				<h:panelGrid columns="2">
 
 					<h:outputText value="CA "/>
@@ -49,9 +56,63 @@
 
 				<p:commandButton value="Gravar" actionListener="#{alunoController.gravar}" ajax="false"/>
 			
-			
-			
 			</p:panel>
+			
+			
+			
+			
+			
+			<p:spacer height="20"/>
+			
+			
+			<p:panel style="width: 300px; background: #E0E0E0;">
+				<p:commandButton value="lista Todos" actionListener="#{alunoController.listar}" ajax="false"/>
+			</p:panel>
+			
+			
+			
+			<p:spacer height="20"/>
+			
+			
+			<div style="width: 800px;">
+			
+			    <p:dataTable var="lista" value="#{alunoController.listaAluno}">
+			        <p:column headerText="CA">
+			            <h:outputText value="#{lista.ca}" />
+			        </p:column>
+			
+			        <p:column headerText="NOME">
+			            <h:outputText value="#{lista.nome}" />
+			        </p:column>
+			
+			        <p:column headerText="EMAIL">
+			            <h:outputText value="#{lista.email}" />
+			        </p:column>
+			
+			        <p:column headerText="DATA NASCIMENTO">
+			            <h:outputText value="#{lista.dataNascimento}" />
+			        </p:column>
+			        
+			        <p:column headerText="ENDEREÇO">
+			            <h:outputText value="#{lista.endereco}" />
+			        </p:column>
+			        
+			        <p:column headerText="IDADE">
+			            <h:outputText value="#{lista.idade}" />
+			        </p:column>
+			        
+			    </p:dataTable>
+		    
+		    </div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 	
 		</div>

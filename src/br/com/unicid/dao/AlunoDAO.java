@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.unicid.model.Aluno;
 import br.com.unicid.ultil.ConnectionFactory;
 
@@ -56,6 +59,38 @@ public class AlunoDAO {
 	
 	
 
+	/** LISTA */
+	public List<Aluno> listarAlunos() throws Exception{
+		conectaMySQL(); //Conecta MySQL
+		
+		List<Aluno> lista = new ArrayList<Aluno>();
+		Aluno aluno = null;
+		
+		try {
+			
+			String sql = "SELECT * FROM unicid.tb_aluno";
+			
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			
+			while(rs.next()){
+				aluno = new Aluno();
+				aluno.setCa(rs.getString("ca"));
+				aluno.setNome(rs.getString("nome"));
+				aluno.setEmail(rs.getString("email"));
+				aluno.setDataNascimento(rs.getString("data_nascimento"));
+				aluno.setEndereco(rs.getString("endereco"));
+				aluno.setIdade(rs.getInt("idade"));
+				lista.add(aluno);
+			}
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, pstm, rs);
+		}
+		
+		return lista;
+	}
+	
 	
 
 	
