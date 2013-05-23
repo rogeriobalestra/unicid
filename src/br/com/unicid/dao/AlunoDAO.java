@@ -1,10 +1,9 @@
 package br.com.unicid.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import br.com.unicid.model.Aluno;
 import br.com.unicid.ultil.ConnectionFactory;
 
@@ -45,7 +44,7 @@ public class AlunoDAO {
 			pstm.setString(1, aluno.getCa());
 			pstm.setString(2, aluno.getNome());
 			pstm.setString(3, aluno.getEmail());
-			pstm.setDate(4, aluno.getDataNascimento());
+			pstm.setString(4, aluno.getDataNascimento());
 			pstm.setString(5, aluno.getEndereco());
 			pstm.setInt(6, aluno.getIdade());
 			pstm.execute();

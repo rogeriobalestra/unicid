@@ -37,7 +37,7 @@
 					<p:inputText value="#{alunoController.aluno.email}"/>
 				
 					<h:outputText value="Data Nascimento: "/>
-					<p:inputText value="#{alunoController.aluno.dataNascimento}" />
+					<p:inputMask mask="9999-99-99" value="#{alunoController.aluno.dataNascimento}"/>
 
 					<h:outputText value="Endereco: "/>
 					<p:inputText value="#{alunoController.aluno.endereco}" />
