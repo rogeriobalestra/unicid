@@ -39,7 +39,7 @@ public class AlunoDAO {
 		
 		try {
 			
-			String sql = "INSERT INTO unicid.tb_aluno(ca, nome, email, data_nascimento, endereco, idade) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO unicid.tb_aluno(ca, nome, email, data_nascimento, endereco, idade) VALUES(?,?,?,?,?,?);";
 			
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, aluno.getCa());
