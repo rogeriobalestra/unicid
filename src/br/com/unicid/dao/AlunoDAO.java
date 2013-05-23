@@ -31,14 +31,21 @@ public class AlunoDAO {
 		}
 	}
 	
+	
 
 	/** INSERIR */
-	public void inserir(Aluno aluno) throws SQLException{
-		conectaMySQL();
-		String sql = "";
+	public void inserir(Aluno aluno) throws Exception{
+		conectaMySQL(); //Conecta MySQL
 		
-		pstm = conn.prepareStatement(sql);
-		pstm.execute();
+		try {
+			String sql = "";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.execute();			
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, pstm, rs);
+		}
 		
 	}
 	
