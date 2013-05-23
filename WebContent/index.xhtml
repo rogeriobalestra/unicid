@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>unicid</title>
+</h:head>
+
+<h:body>
+
+	<h:form prependId="false">
+
+
+
+
+		<p:spacer height="10px" />
+
+		<div align="center">
+	
+			<p:panel header="Cadastro" style="width: 800px; font-family: arial; font-size: 13px;">
+			
+			
+				<h:panelGrid columns="2">
+
+					<h:outputText value="CA "/>
+					<p:inputText value="#{alunoController.aluno.ca}"/>
+
+					<h:outputText value="Nome: "/>
+					<p:inputText value="#{alunoController.aluno.nome}"/>
+				
+					<h:outputText value="Email: "/>
+					<p:inputText value="#{alunoController.aluno.email}"/>
+				
+					<h:outputText value="Data Nascimento: "/>
+					<p:inputText value="#{alunoController.aluno.dataNascimento}" />
+
+					<h:outputText value="Endereco: "/>
+					<p:inputText value="#{alunoController.aluno.endereco}" />
+					
+					<h:outputText value="Idade: "/>
+					<p:inputText value="#{alunoController.aluno.idade}" />				
+				
+				</h:panelGrid>
+
+				<p:commandButton value="Gravar" actionListener="#{alunoController.gravar}" ajax="false"/>
+			
+			
+			
+			</p:panel>
+			
+	
+		</div>
+
+
+
+
+
+
+
+
+
+
+	
+	</h:form>
+
+</h:body>
+</html>
