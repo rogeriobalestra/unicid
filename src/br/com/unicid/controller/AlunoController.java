@@ -43,6 +43,7 @@ public class AlunoController {
 		try {
 			dao.inserir(aluno);//insere
 			mensagem("inserido com sucesso !");
+			limpaCampos();
 			listar(); //chama lista
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,6 +58,7 @@ public class AlunoController {
 		try {
 			listaAluno = null;
 			listaAluno = dao.listarAlunos();
+			limpaCampos();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,6 +72,7 @@ public class AlunoController {
 		try {
 			if(aluno != null){
 				dao.alterar(aluno);	
+				limpaCampos();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,6 +92,11 @@ public class AlunoController {
 	}	
 	
 	
+	
+	/** LIMPAR CAMPOS */
+	public void limpaCampos(){
+		aluno = new Aluno();
+	}
 	
 	
 	
