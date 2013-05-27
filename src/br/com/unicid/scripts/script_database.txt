@@ -1,0 +1,14 @@
+create database unicid;
+
+DROP TABLE IF EXISTS tb_aluno;
+
+CREATE TABLE unicid.tb_aluno (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  ca varchar(45) DEFAULT NULL,
+  nome varchar(100) DEFAULT NULL,
+  email varchar(100) DEFAULT NULL,
+  data_nascimento datetime DEFAULT NULL,
+  endereco varchar(200) DEFAULT NULL,
+  idade int(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
