@@ -2,8 +2,10 @@ package br.com.unicid.controller;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent; // cuidado ao importar esse (tem que o do package faces)
 import br.com.unicid.dao.AlunoDAO;
 import br.com.unicid.model.Aluno;
@@ -25,7 +27,12 @@ public class AlunoController {
 	}
 
 	
-	
+	/** MENSAGEM */
+	public void mensagem(String mensagem){
+		 FacesMessage msg = new FacesMessage("",mensagem);
+		 FacesContext.getCurrentInstance().addMessage(null, msg);
+		
+	}
 	
 	
 	
@@ -34,7 +41,9 @@ public class AlunoController {
 		AlunoDAO dao = new AlunoDAO();
 		
 		try {
-			dao.inserir(aluno);
+			dao.inserir(aluno);//insere
+			mensagem("inserido com sucesso !");
+			listar(); //chama lista
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,6 +62,31 @@ public class AlunoController {
 		}
 	}
 	
+	
+	
+	/** ALTERAR */
+	public void alterar(){
+		AlunoDAO dao = new AlunoDAO();
+		try {
+			if(aluno != null){
+				dao.alterar(aluno);	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	/** EXCLUIR */
+	public void excluir(){
+		AlunoDAO dao = new AlunoDAO();
+		try {
+			dao.excluir(aluno);
+			listar();//chama lista
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
 	
 	
 	

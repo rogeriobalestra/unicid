@@ -92,8 +92,47 @@ public class AlunoDAO {
 	}
 	
 	
+	
+	/** ALTERAR */
+	public void alterar(Aluno aluno) throws Exception{
+		conectaMySQL(); //Conecta MySQL
+		
+		try {
+			
+			String sql = "UPDATE unicid.tb_aluno SET ca = ?, nome = ?, email = ?, data_nascimento = ?, endereco = ?, idade = ? WHERE ca = ?";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, aluno.getCa());
+			pstm.setString(2, aluno.getNome());
+			pstm.setString(3, aluno.getEmail());
+			pstm.setString(4, aluno.getDataNascimento());
+			pstm.setString(5, aluno.getEndereco());
+			pstm.setInt(6, aluno.getIdade());
+			pstm.setString(7, aluno.getCa());
+			pstm.execute();
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, pstm, rs);
+		}
+	}
 
 	
+	/** EXCLUIR */
+	public void excluir(Aluno aluno) throws Exception{
+		conectaMySQL(); //Conecta MySQL
+		
+		try {
+			
+			String sql = "DELETE FROM unicid.tb_aluno WHERE ca = ?";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, aluno.getCa());
+			pstm.execute();
+			
+		} finally {
+			ConnectionFactory.closeConnection(conn, pstm, rs);
+		}
+	}
 	
 	
 	

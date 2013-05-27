@@ -22,6 +22,11 @@
 
 		<div align="center">
 	
+			<!-- MENSAGEM -->
+			<p:growl id="mensagem" showDetail="true" life="5000" />
+	
+	
+	
 			<p:panel header="Cadastro" style="width: 800px; font-family: arial; font-size: 13px;">
 			
 			
@@ -55,28 +60,25 @@
 				</h:panelGrid>
 
 				<p:commandButton value="Gravar" actionListener="#{alunoController.gravar}" ajax="false"/>
+				<p:commandButton value="Alterar" actionListener="#{alunoController.alterar}" ajax="false"/>
+				  
 			
 			</p:panel>
 			
 			
 			
+			<br/>
 			
 			
-			<p:spacer height="20"/>
+			<p:commandButton value="lista Todos" actionListener="#{alunoController.listar}" ajax="false"/>
+
+			<br/><br/>
 			
-			
-			<p:panel style="width: 300px; background: #E0E0E0;">
-				<p:commandButton value="lista Todos" actionListener="#{alunoController.listar}" ajax="false"/>
-			</p:panel>
-			
-			
-			
-			<p:spacer height="20"/>
 			
 			
 			<div style="width: 800px;">
 			
-			    <p:dataTable var="lista" value="#{alunoController.listaAluno}">
+			    <p:dataTable id="listaDeAlunos" var="lista" value="#{alunoController.listaAluno}">
 			        <p:column headerText="CA">
 			            <h:outputText value="#{lista.ca}" />
 			        </p:column>
@@ -100,6 +102,20 @@
 			        <p:column headerText="IDADE">
 			            <h:outputText value="#{lista.idade}" />
 			        </p:column>
+			        
+			        <p:column headerText="">
+			        	<h:commandLink title="Alterar">
+							<p:graphicImage value="./imagens/icone_alterar.png" />
+							<f:setPropertyActionListener value="#{lista}" target="#{alunoController.aluno}" />  	
+			        	</h:commandLink>
+			        </p:column>
+			        
+			        <p:column headerText="">
+			        	<p:commandLink title="Excluir" action="#{alunoController.excluir}" update="listaDeAlunos">
+							<p:graphicImage value="./imagens/icone_excluir.png" />
+							<f:setPropertyActionListener value="#{lista}" target="#{alunoController.aluno}" /> 
+			        	</p:commandLink>
+			        </p:column>			        
 			        
 			    </p:dataTable>
 		    
